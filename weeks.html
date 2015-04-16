@@ -75,82 +75,18 @@
 
         <div class="row">
             <div class="box">
-                <div class="col-lg-12 text-center">
-                    <div id="carousel-example-generic" class="carousel slide">
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators hidden-xs">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                        </ol>
-
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <img class="img-responsive img-full" src="img/slide-1.jpg" alt="">
-                            </div>
-                            <div class="item">
-                                <img class="img-responsive img-full" src="img/slide-2.jpg" alt="">
-                            </div>
-                            <div class="item">
-                                <img class="img-responsive img-full" src="img/slide-3.jpg" alt="">
-                            </div>
-                        </div>
-
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                            <span class="icon-prev"></span>
-                        </a>
-                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                            <span class="icon-next"></span>
-                        </a>
-                    </div>
-                    <h2 class="brand-before">
-                        <small>Welcome to</small>
-                    </h2>
-                    <h1 class="brand-name">Lindsay Hundley's TA Website!</h1>
-                    <hr class="tagline-divider">
-                    <h2>
-                        <small>By <strong> Lindsay's boyfriend, Alan </strong>
-                            <small>Theme by Start Bootstrap<small>
-                        </small>
-                    </h2>
+                <div class="col-lg-12">
+                    <ul id="readings"></ul>
                 </div>
             </div>
         </div>
-
         <div class="row">
             <div class="box">
                 <div class="col-lg-12">
-                    <hr>
-                    <h2 class="intro-text text-center">Here's the most 
-                        <strong>vital</strong> information about Lindsay
-                    </h2>
-                    <hr>
-                    <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="">
-                    <hr class="visible-xs">
-                    <p>Lindsay Hundley is a graduate student at Stanford University. Her hobbies include being great, doing homework, and Netflix. She is also a fan of Kenneth Waltz (left)</p>
-                    <p>A huge thanks to Alan Tennent, who helps her with various life-related things. 
-                    <p> Lindsay's favorite day of the week is always tomorrow, and recommends that you talk to her then so she'll be in a better mood. Her favorite day of the year is in mid June because that's when her birthday is. I won't tell you what day it is, because that's an invasion of privacy and you already know her home address. What more do you want from her?</p>
-                    <p> That said, Lindsay can be very responsive to emails if they're worded nicely. </p>
-                    <img class="img-responsive img-border img-left" src="img/intro-pic2.jpg" alt="">
+                    <div id="wrapup"> </div>
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="box">
-                <div class="col-lg-12">
-                    <hr>
-                    <h2 class="intro-text text-center"> Use the 
-                        <strong> navigation panel </strong> at the top of the screen to view material from each week.
-                    </h2>
-                    <hr>
-                    <p> There's not really much more to say here. </p>
-                </div>
-            </div>
-        </div>
-
     </div>
     <!-- /.container -->
 
@@ -176,6 +112,54 @@
         interval: 5000 //changes the speed
     })
     </script>
+
+    <script type="text/javascript">
+
+
+        function getUrlParameter(sParam)
+        {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++) 
+            {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam) 
+                {
+                    return sParameterName[1];
+                }
+            }
+        }     
+
+        (function() {
+          var weekNumber = getUrlParameter("week");
+          var targetURL =  "week" + weekNumber + ".json"
+
+          var debug = true;
+          if (debug) {
+            targetURL = "http://localhost:8000/" + targetURL;
+          } 
+
+          console.log(targetURL);
+          $.getJSON(targetURL, {
+            format: "json"
+          })
+            .done(function( data ) {
+              $("#wrapup").html(data["wrapup"]);
+
+              var readings = data["readings"];
+              for (var index in readings) {
+                var reading = readings[index];
+                $("#readings").append("<li>" + reading + "</li>");
+              }
+            });
+        })();
+
+
+
+
+    </script>
+
+
 
 </body>
 
