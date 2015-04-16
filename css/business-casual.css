@@ -6,7 +6,7 @@
 
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    background: url('../img/bg.jpg') no-repeat center center fixed;
+    background: wheat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -120,10 +120,10 @@ footer p {
         text-align: center;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size: 5em;
+        font-size: 3em;
         font-weight: 700;
         line-height: normal;
-        color: #fff;
+        color: #674c47;
     }
 
     .top-divider {
@@ -145,7 +145,7 @@ footer p {
         font-size: 1.25em;
         font-weight: 400;
         letter-spacing: 3px;
-        color: #fff;
+        color: #674c47;
     }
 
     .navbar {
@@ -162,12 +162,12 @@ footer p {
 
     .navbar-default {
         border: none;
-        background: #fff;
+        background: #eee;
         background: rgba(255,255,255,0.9);
     }
 
     .nav>li>a {
-        padding: 35px;
+        padding: 25px;
     }
 
     .navbar-nav>li>a {
@@ -181,6 +181,24 @@ footer p {
         table-layout: fixed;
         font-size: 1.25em;
     }
+}
+
+table {
+    border: 1px solid #222;
+    table-layout: fixed;
+    margin:0px auto;
+    max-width: 900px
+}
+
+tr.header {
+    text-align: center;
+    font-weight:bold;
+}
+
+td {
+    border : 1px solid #222;
+    padding: 10px;
+    width: 30%;
 }
 
 @media screen and (min-width:1200px) {
