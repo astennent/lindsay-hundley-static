@@ -25,8 +25,13 @@ h6 {
     letter-spacing: 1px;
 }
 
+h4 {
+    padding-top:5px;
+    padding-bottom:5px;
+    font-size:22px;
+}
+
 p {
-    font-size: 1.25em;
     line-height: 1.6;
     color: #000;
 }
