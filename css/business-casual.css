@@ -206,6 +206,10 @@ td {
     width: 30%;
 }
 
+table.narrow-columns td:first-child {
+    width:10%;
+}
+
 @media screen and (min-width:1200px) {
     .box:after {
         content: '';
