@@ -1,0 +1,60 @@
+body {
+   font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   background-size: cover;
+   -o-background-size: cover;
+   padding:20px;
+   margin-left:0px;
+   margin-right:0px;
+}
+
+.table {
+   display:table;
+}
+
+.row{
+   display:row;
+}
+
+.col {
+   display:table-column;
+}
+
+.content {
+   max-width: 700px;
+   display:table-cell;
+}
+
+.header {
+   float:left;
+}
+
+a {
+   color:#222;
+}
+
+#stanford {
+   float:right;
+   width:70px;
+   height:70px;
+   margin-left:10px;
+   margin-top:25px;
+}
+
+#profile {
+   width:250px;
+   height:312px;
+   float: right;
+   margin: 0 0 10px 10px;
+}
+
+.sidebar {
+   float:left;
+   display:table-cell;
+   padding:30px;
+}
+
+#title {
+   margin-top:0px;
+}
